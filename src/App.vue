@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <app-header @open-login-modal="isLoginOpen = true" @open-sign-up-modal="isSignUpOpen= true"/>
+  <div class="row justify-content-center">
+    <router-view></router-view>
+  </div>
+  <login-modal v-if="isLoginOpen" @close-login="isLoginOpen = !isLoginOpen"/>
+  <sign-up-modal v-if="isSignUpOpen" @close-sign-up="isSignUpOpen = !isSignUpOpen" @open-login-modal="isLoginOpen = true"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from './components/AppHeader.vue'
+import LoginModal from './components/LoginModal.vue'
+import SignUpModal from './components/SignUpModal.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { AppHeader, LoginModal, SignUpModal},
+  data(){
+        return {
+          isLoginOpen : false,
+          isSignUpOpen : false,
+        }
+    }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
