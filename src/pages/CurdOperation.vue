@@ -80,7 +80,10 @@ export default {
     getAllUsers(){
       fetch('http://localhost:8000/api/users/getAll')
           .then(response=> response.json())
-          .then(data=> {this.users = data})
+          .then(data=> {
+            this.users = data
+            console.log(data)
+          })
     },
     addUser(){
       fetch('http://localhost:8000/api/users/create',{
@@ -147,7 +150,7 @@ export default {
     },
   },
   mounted() {
-    this.getAllUsers();
+    this.getAllUsers()
   }
 }
 </script>
