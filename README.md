@@ -42,3 +42,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### App MarkDown (The use of mixins and data properties helps in maintaining code reusability and separation of concerns)
 ![CURD](src/assets/markdown.jpg "CURD")
 
+### Chat App
+![Chat](src/assets/chatApp.jpg "Chat")
+
+use follow backend for chat App
+```bash
+   https://github.com/PushpaKumara89/chat-app-backend.git

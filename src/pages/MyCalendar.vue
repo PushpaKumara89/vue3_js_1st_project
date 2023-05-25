@@ -24,12 +24,14 @@
       <button class="px-2 border rounded" @click="next">Next</button>
     </section>
   </div>
+  <img :src="t" >
 </template>
 
 <script>
 export default {
   data() {
     return {
+      t:"../assets/chat/prof1.jpg",
       currentDate : new Date().getUTCDate(),
       currentMonth: new Date().getMonth(),
       currentYear: new Date().getFullYear(),

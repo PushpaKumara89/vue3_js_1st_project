@@ -30,7 +30,7 @@ export default {
         {title:'Clock', to:"/clock"},
         {title:'Curd_Operation', to:"/curd"},
         {title:'MarkDown', to:"/markdown"},
-        {title:'Google Map', to:"/googlemaps"},
+        {title:'ChatApp', to:"/chat_app"},
       ],
     }
   },

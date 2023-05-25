@@ -11,7 +11,10 @@
             </li>
         </ul>
         <form class="mt-5" @submit.prevent="addHero">
-            <input class="border rounded" v-model="newHero" placeholder="Type Hero name here">
+            <input class="border rounded"
+                   v-model="newHero" placeholder="Type Hero name here"
+                   ref="newDcHero"
+            >
             <button class="border rounded bg-danger bg-gradient" type="submit">Add Hero</button>
         </form>
     </div>
@@ -40,14 +43,21 @@ export default {
         addHero() {
             if (this.newHero.length > 0) {
                 this.dcHeros.unshift({ name: this.newHero });
-                this.newHero = "";
+                this.clear()
             }
         },
         remove(index) {
             this.dcHeros = this.dcHeros.filter((hero, i) => i != index);
+          this.clear()
         },
+      clear(){
+        this.newHero = "";
+        this.$refs.newDcHero.focus();
+      }
     },
-
+  mounted() {
+      this.clear()
+  }
 }
 </script>
 

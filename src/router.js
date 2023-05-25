@@ -4,8 +4,8 @@ import MyCalendar from "./pages/MyCalendar";
 import HomeDisplay from "./pages/HomeDisplay";
 import CurdOperation from "./pages/CurdOperation";
 import MarkDown from "@/pages/MarkDown";
-import GoogleMaps from './pages/GoogleMaps'
 import Clock from "@/pages/ClockR";
+import ChatApp from "@/pages/ChatApp";
 
 const routes = [
     { path: '/', component: HomeDisplay },
@@ -14,7 +14,7 @@ const routes = [
     { path: '/clock', component: Clock },
     { path: '/curd', component: CurdOperation },
     { path: '/markdown', component: MarkDown },
-    { path: '/googlemaps', component: GoogleMaps },
+    { path: '/chat_app', component: ChatApp },
 ]
 
 

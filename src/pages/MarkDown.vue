@@ -3,7 +3,12 @@
     <h1 class="w-100 text-center my-2 fs-2">MarkDown App</h1>
     <section class="d-flex w-75 m-auto vh-100">
       <article class="w-50 border">
-        <textarea class="w-100 h-100"  :value="text" @input="update"></textarea>
+        <textarea class="w-100 h-100"
+                  :value="text" @input="update"
+                  ref="markdownTextArea"
+        >
+
+        </textarea>
       </article>
       <article class="w-50 border right" v-html="markedText"></article>
     </section>
@@ -31,6 +36,9 @@ export default {
       this.debounce(task, 500)
     },
   },
+  mounted() {
+    this.$refs.markdownTextArea.focus()
+  }
 }
 </script>
 
