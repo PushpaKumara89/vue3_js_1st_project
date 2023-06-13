@@ -1,6 +1,6 @@
 <template>
 
-  <div class="" v-if="showScreen">
+  <div class="container" v-if="showScreen">
     <div class="row clearfix">
       <div class="col-lg-12">
         <div class="card chat-app">

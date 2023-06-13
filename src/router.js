@@ -6,6 +6,7 @@ import CurdOperation from "./pages/CurdOperation";
 import MarkDown from "@/pages/MarkDown";
 import Clock from "@/pages/ClockR";
 import ChatApp from "@/pages/ChatApp";
+import ChatApp2 from "@/pages/ChatApp2";
 
 const routes = [
     { path: '/', component: HomeDisplay },
@@ -15,6 +16,7 @@ const routes = [
     { path: '/curd', component: CurdOperation },
     { path: '/markdown', component: MarkDown },
     { path: '/chat_app', component: ChatApp },
+    { path: '/chat_app2', component: ChatApp2 },
 ]
 
 
