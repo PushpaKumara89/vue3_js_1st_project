@@ -2,7 +2,7 @@
     <div class="w-auto">
         <h1 class="text-center fs-2 mb-3">Dc-hearos {{ herosCount }}</h1>
         <ul class="list-group">
-            <li class="list-group-item border-0 d-flex justify-content-between p-0 mb-2" v-for="hero, index in dcHeros"
+            <li class="list-group-item border-0 d-flex justify-content-between p-0 mb-2" v-for="(hero , index) in dcHeros"
                 :key="hero.name">
                 <div>
                     {{ hero.name }}
@@ -18,20 +18,22 @@
             <button class="border rounded bg-danger bg-gradient" type="submit">Add Hero</button>
         </form>
     </div>
+
 </template>
 
 <script>
 export default {
     data() {
         return {
-            newHero: "",
-            dcHeros: [
-                { name: "SuperGirl" },
-                { name: "Flash" },
-                { name: "Arrow" },
-                { name: "SpiderMan" },
-                { name: "SuperMan" },
-            ],
+          show:false,
+          newHero: "",
+          dcHeros: [
+            { name: "SuperGirl" },
+            { name: "Flash" },
+            { name: "Arrow" },
+            { name: "SpiderMan" },
+            { name: "SuperMan" },
+          ],
         };
     },
     computed: {
@@ -42,12 +44,12 @@ export default {
     methods: {
         addHero() {
             if (this.newHero.length > 0) {
-                this.dcHeros.unshift({ name: this.newHero });
+                this.dcHeros.push({ name: this.newHero });
                 this.clear()
             }
         },
         remove(index) {
-            this.dcHeros = this.dcHeros.filter((hero, i) => i != index);
+            this.dcHeros = this.dcHeros.filter((hero, i) => i !== index);
           this.clear()
         },
       clear(){

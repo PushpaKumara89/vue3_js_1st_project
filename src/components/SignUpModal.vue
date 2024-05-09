@@ -50,7 +50,7 @@
                     </div>
 
                     <!-- Submit button -->
-                    <button :disabled="formValidation" @click="signUp()" type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+                    <button :disabled="formValidation" @click="signUp()" type="button" class="btn btn-primary btn-block mb-4">Sign up</button>
 
                     <!-- Register buttons -->
                     <div class="text-center">
@@ -112,6 +112,8 @@ export default {
   methods:{
     signUp(){
       console.log(this.formUser)
+      this.$emit('open-login-modal');
+      this.$emit('close-sign-up');
     }
   }
 }
@@ -119,7 +121,7 @@ export default {
 
 <style>
 .d-with{
-  width: 500px;
+  width: auto;
 }
 .fed {
     position: fixed;

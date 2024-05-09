@@ -47,4 +47,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 use follow backend for chat App
 ```bash
-   https://github.com/PushpaKumara89/chat-app-backend.git
+   git clone https://github.com/PushpaKumara89/chat-app-backend.git

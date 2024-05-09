@@ -69,7 +69,7 @@ export default {
     changeCunt(cun){
       this.country = cun.country
       this.currentCountryCode = cun.code
-      this.timer(this.timeCss, 1000)
+      this.intV = this.timer(this.timeCss, 1000)
     },
     getCssRotate(num){
       num *=6;
@@ -109,6 +109,7 @@ export default {
     }
   },
   beforeUnmount() {
+    clearInterval(this.tempInt)
     clearInterval(this.intV)
   }
 }

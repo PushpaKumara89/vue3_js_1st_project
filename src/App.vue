@@ -1,10 +1,30 @@
 <template>
-  <app-header @open-login-modal="isLoginOpen = true" @open-sign-up-modal="isSignUpOpen= true"/>
+  <router-view></router-view>
+</template>
+
+<script>
+
+
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
+
+<!-- <template>
+  <app-header :isLoggedIn="isLoggedIn"
+              @open-login-modal="isLoginOpen = true"
+              @open-sign-up-modal="isSignUpOpen= true"
+              @logOut="isLoggedIn=!isLoggedIn"
+  />
   <div class="row justify-content-center">
     <router-view></router-view>
   </div>
-  <login-modal v-if="isLoginOpen" @close-login="isLoginOpen = !isLoginOpen"/>
-  <sign-up-modal v-if="isSignUpOpen" @close-sign-up="isSignUpOpen = !isSignUpOpen" @open-login-modal="isLoginOpen = true"/>
+  <login-modal v-if="isLoginOpen" @close-login="isLoginOpen = !isLoginOpen" @login = "logIn()"/>
+  <sign-up-modal v-if="isSignUpOpen" @close-sign-up="isSignUpOpen = !isSignUpOpen" @open-login-modal="isLoginOpen = !isLoginOpen"/>
 </template>
 
 <script>
@@ -18,12 +38,19 @@ export default {
         return {
           isLoginOpen : false,
           isSignUpOpen : false,
+          isLoggedIn:false
         }
+    },
+  methods:{
+    logIn(){
+      this.isLoggedIn = !this.isLoggedIn
+      this.isLoginOpen = !this.isLoginOpen;
     }
+  }
 
 }
 </script>
 
 <style>
 
-</style>
+</style> -->

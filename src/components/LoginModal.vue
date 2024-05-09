@@ -66,7 +66,7 @@ export default {
   methods:{
     login(){
       console.log(this.loginFrom)
-      this.$emit('close-login')
+      this.$emit('login')
     },
   }
 

@@ -68,18 +68,16 @@
             </div>
             <div class="chat-message clearfix">
               <div class="input-group mb-0">
-                <div class="input-group-prepend">
-                  <span @click="sendMessage()" class="input-group-text"><i class="fa fa-send"></i></span>
+
+                <div class="message-box">
+                  <i class="fa-solid fa-paperclip btn" @click="clickTiger()"></i>
+                  <input type="text" class="message-input" placeholder="Type your message..."
+                         v-model="newMessage"
+                         @keyup="$event.keyCode === 13 && sendMessage()"/>
+                  <i @click="sendMessage()" class="fa fa-send send-button btn"></i>
+                  <input style="display: none" id="addFile" class="m-2" type="file" ref="fileInput" accept="image/*" @change="addFile($event)" />
                 </div>
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-paperclip btn position-absolute" @click="clickTiger()"></i></span>
-                </div>
-                <input type="text" class="form-control" placeholder="Enter text here..."
-                       v-model="newMessage"
-                       @keyup="$event.keyCode === 13 && sendMessage()"
-                />
-                <!--file selector-->
-                <input style="display: none" id="addFile" class="m-2" type="file" ref="fileInput" accept="image/*" @change="addFile($event)" />
+
               </div>
             </div>
           </div>
@@ -114,6 +112,7 @@ export default {
   mounted() {
     console.log(this.userList)
     this.socket = io("http://192.168.1.100:3000"); // Replace with your server URL
+
 
     this.socket.on("user joined", (r) => {
       console.log(r)
@@ -454,4 +453,31 @@ body{
     overflow-x: auto
   }
 }
+
+/*chat gpt css*/
+.message-box {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.message-input {
+  flex: 1;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.send-button {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.chat-message{
+  background-color: rgba(67, 70, 81, 0.65);
+}
+/*chat gpt*/
 </style>

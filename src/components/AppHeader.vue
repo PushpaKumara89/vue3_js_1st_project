@@ -11,9 +11,11 @@
           <router-link :to="item.to" class="nav-link active text-white fw-bold">{{item.title}}</router-link>
         </li>
       </ul>
-      <button class="nav-link active text-white fw-bold" @click="$emit('open-sign-up-modal')">Sign Up</button>
-      <button class="nav-link active text-white fw-bold ps-3" @click="$emit('open-login-modal')">Login</button>
-
+      <div v-if="!isLoggedIn" class="d-flex flex-wrap">
+        <button class="nav-link active text-white fw-bold" @click="$emit('open-sign-up-modal')">Sign Up</button>
+        <button class="nav-link active text-white fw-bold ps-3" @click="$emit('open-login-modal')">Login</button>
+      </div>
+      <button v-else class="nav-link active text-white fw-bold ps-3" @click="$emit('logOut')">LogOut</button>
     </div>
   </div>
 </nav>
@@ -22,6 +24,7 @@
 <script>
 
 export default {
+  props:['isLoggedIn'],
   data(){
     return {
       list:[
@@ -31,6 +34,8 @@ export default {
         {title:'Curd_Operation', to:"/curd"},
         {title:'MarkDown', to:"/markdown"},
         {title:'ChatApp', to:"/chat_app"},
+        {title:'Charts', to:"/charts"},
+        {title:'ChatGTP(Meta)', to:"/chat_gtp"},
       ],
     }
   },
